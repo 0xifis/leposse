@@ -1,4 +1,12 @@
 Leposse::Application.routes.draw do
+
+  
+  get "pages/home"
+
+  get "pages/about"
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
