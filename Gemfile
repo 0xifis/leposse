@@ -24,7 +24,9 @@ gem 'jquery-rails'
 
 gem 'zurb-foundation'
 gem 'devise'
-gem 'oauth2'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'thin'
 
 gem 'activeadmin'
 

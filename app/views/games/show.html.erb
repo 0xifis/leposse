@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sport:</b>
+  <%= @game.sport %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @game.date %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @game.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @game.end_time %>
+</p>
+
+<p>
+  <b>Venue:</b>
+  <%= @game.venue_id %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @game.details %>
+</p>
+
+<p>
+  <b>Maxpax:</b>
+  <%= @game.maxpax %>
+</p>
+
+<p>
+  <b>Host:</b>
+  <%= @game.host_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
