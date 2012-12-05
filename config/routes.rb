@@ -1,6 +1,12 @@
 Leposse::Application.routes.draw do
 
   
+  resources :venues
+
+
+  resources :games
+
+
   get "pages/home"
 
   get "pages/about"

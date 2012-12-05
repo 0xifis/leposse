@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :gender, :handphone,
   				  :password, :password_confirmation, :remember_me, :uid, :provider
 
+  has_and_belongs_to_many :games
+
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
