@@ -18,6 +18,8 @@ development:
   database: leposse_development
   pool: 5
   host: localhost
+  user: postgres
+  password: postgres
 
 test:
   adapter: postgresql
@@ -25,6 +27,8 @@ test:
   database: leposse_test
   pool: 5
   host: localhost
+  user: postgres
+  password: postgres
 
 production:
   adapter: postgresql
@@ -32,3 +36,5 @@ production:
   database: leposse_production
   pool: 5
   host: localhost
+  user: postgres
+  password: postgres
