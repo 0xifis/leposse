@@ -45,4 +45,8 @@ class User < ActiveRecord::Base
       update_attributes(params) 
     end
 
+    def password_required?
+      super && provider.blank?
+    end
+
 end
