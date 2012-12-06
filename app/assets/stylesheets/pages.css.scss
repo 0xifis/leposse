@@ -3,14 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, body {
-width:100%;
-height:100%;
+  width:100%;
+  height:100%;
   @media (max-width: 767px) {
-    padding-left:0;
+    padding:0;
   }
-}
-h1,h2,h3,h4,h5,h6,p,a,dl,dt {
-  font-family: 'bariol', sans;
 }
 
 #slides {
