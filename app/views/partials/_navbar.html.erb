@@ -1,0 +1,50 @@
+<div class="container navbar-wrapper">
+
+	<div class="navbar">
+		<div class="navbar-inner">
+
+			<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="#">lePosse</a>
+
+			<div class="nav-collapse collapse" style="height: 0px;">
+				<ul class="nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+				<ul class="nav pull-right">
+
+					<% if current_user.present? %>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.first_name + ' ' + current_user.last_name %><b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="/users/edit">Edit Account</a></li>
+								<li><%= link_to('Sign Out', destroy_user_session_path, method: "delete") %> </li>
+							</ul>
+						</li>
+					<% else %>
+						<li><a href="/users/sign_up">Sign Up</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In<b class="caret"></b></a>
+							<ul class="dropdown-menu" id="sign_in">
+								<%= form_for("user", :url => user_session_path) do |f| %> 
+								<%= f.text_field :email , :size=>'15',:maxlength=>'32', placeholder: "Email" %> <br/> 
+								<%= f.password_field :password , :size=>'15', :maxlength=>'32', placeholder: "Password" %> 
+								<br/> 
+								<%= f.submit "Sign in", class: "btn btn-primary" %>
+								<%= link_to "Facebook Login", user_omniauth_authorize_path(:facebook), class: "btn" %>
+								<% end %> 
+							</ul>
+						</li>
+					<% end %>
+
+
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+</div>
