@@ -38,8 +38,17 @@ body{
 .navbar-wrapper {
 	position: relative;
 	z-index: 10;
-	margin-top: 40px;
 	margin-bottom: -110px; 
+	@media (min-width: 768px){
+		margin-top: 40px;
+	}
+	@media (max-width: 767px){
+		position: fixed;
+		left: 0px;
+		right: 100%;
+		width: 100%;
+		top: 0px;
+	}
 }
 
 .navbar .navbar-inner {
@@ -69,6 +78,7 @@ body{
   @media (min-width: 1200px){
   	left: 50%;
   	margin-left: -585px;
+
   }
   @media (min-width: 980px) and (max-width:1199px){
   	left: 50%;
@@ -82,6 +92,7 @@ body{
   	left: 0px;
   	right: 100%;
   	width: 100%;
+  	top: 0px;
   }
 }
 
@@ -126,3 +137,4 @@ body{
 		line-height: 35px;
 	}
 }
+
