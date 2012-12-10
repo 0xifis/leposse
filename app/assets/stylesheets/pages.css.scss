@@ -2,15 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html, body {
+/*html, body {
   width:100%;
   height:100%;
   @media (max-width: 767px) {
     padding:0;
   }
 }
+*/
+html {
+    background: url('banner2.PNG') no-repeat center center fixed; 
+    @include background-size(cover);
+}
 
-#slides {
+/*#slides {
     top:0;
     z-index:-10;
     min-height: 100%;
@@ -25,7 +30,7 @@ html, body {
 #slide_content{
   padding-top:8em;
 }
-
+*/
 body{
 	/*background-color: #452632;*/
 	overflow-x:hidden; 
@@ -47,7 +52,7 @@ body{
 		left: 0px;
 		right: 100%;
 		width: 100%;
-		top: 0px;
+		top: -5px;
 	}
 }
 
@@ -92,7 +97,7 @@ body{
   	left: 0px;
   	right: 100%;
   	width: 100%;
-  	top: 0px;
+  	top: -5px;
   }
 }
 
@@ -126,15 +131,12 @@ body{
 #main-search{
 	display: inline-block;
 	padding: 7px;
-	.span2{
+	input{
 		width: 500px;
 		height: 35px;
 		font-size: 25px;
 		line-height: 35px;
 	}
-	.btn{
-		font-size: 25px;
-		line-height: 35px;
-	}
+
 }
 
