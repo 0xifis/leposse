@@ -1,10 +1,11 @@
 $sansFontFamily: 'bariol', sans-serif;
 @import "bootstrap";
 @import "bootstrap-responsive";
+
 body{
-	background-color: transparent;
+	@media(max-width:767px){
+		padding:7px;
+	}
+	overflow-x:hidden;
 }
 
-.navbar {
-  margin-bottom:0;
-}
