@@ -1,31 +1,35 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class="row-fluid">
+  <div class="span7">
+    <div class="row-fluid">
+      <div class="span6"><%= f.text_field :first_name, placeholder: "First Name" %></div>
+      <div class="span6"><%= f.text_field :last_name, placeholder: "Last Name" %></div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6"><%= f.email_field :email, placeholder: "Email" %></div>
+      <div class="span6"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], 1)) %></div >
+    </div>
+<!--     <div class="row-fluid">
 
-  <div><%= f.label :first_name %><br />
-  <%= f.email_field :first_name %></div>
+      <div class="span6"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], 1)) %></div>
+      <div class="span6"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], 1)) %></div>
+    </div> -->
+    <div class="row-fluid">
+      <div class="span6"><%= f.password_field :password, placeholder: "Password" %></div>
+      <div class="span6"  ><%= f.password_field :password_confirmation, placeholder: "Retype Your Password" %></div>
+    </div>
 
-  <div><%= f.label :last_name %><br />
-  <%= f.email_field :last_name %></div>
-
-  <div><%= f.label :gender %><br />
-  <%= f.email_field :gender %></div>
-
-  <% if f.object.password_required? %>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <% end %>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      <div><%= f.submit "Sign up" %></div>
+  <%= render "devise/shared/links" %>
+      
+      <% end %>
+    </div>
+    <div class="span5 align-center">
+      <h3>Alternativeley, save yourself the trouble and sign in through Facebook.</h3>
+              <%= link_to "Facebook Login", user_omniauth_authorize_path(:facebook), class: "btn btn-primary btn-large" %>
+    </div>
+  </div>

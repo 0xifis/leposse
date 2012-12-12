@@ -15,9 +15,8 @@
 //= require bootstrap
 //= require_tree .
 
-function onScroll(e) {
-  window.scrollY >= 44 ? $(".navbar-wrapper").addClass('sticky') :
-                         $(".navbar-wrapper").removeClass('sticky');
-}
-
-document.addEventListener('scroll', onScroll);
+// function onScroll(e) {
+//   window.scrollY >= 40 ? $(".navbar-wrapper").addClass('sticky') :
+//                          $(".navbar-wrapper").removeClass('sticky');
+// };
+// document.addEventListener('scroll', onScroll);

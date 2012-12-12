@@ -17,8 +17,34 @@ body{
 }
 
 
-btn-navbar collapsed{
+.btn-navbar{
 	padding-top: 5px;
 	border-radius: 12px;
-	padding-bottom: 5px;
+	padding-bottom: 5px;	
+	@include transition (transform 0.5s ease-in);
+}
+
+.icon-down{
+	@include transform(rotate(180deg))	
+}
+
+.content{
+	box-sizing: border-box;
+	background-color: rgba(255,255,255,0.6);
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+}
+
+input, select{
+	width: 100%;
+	height: 35px;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+	height: 35px;	
+}
+
+div, input{
+	box-sizing: border-box;
 }

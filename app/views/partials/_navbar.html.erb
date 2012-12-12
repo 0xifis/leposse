@@ -25,10 +25,9 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In<b class="caret"></b></a>
             <ul class="dropdown-menu" id="sign_in">
-              <%= form_for("user", :url => user_session_path) do |f| %> 
-              <%= f.text_field :email , :size=>'15',:maxlength=>'32', placeholder: "Email" %> <br/> 
-              <%= f.password_field :password , :size=>'15', :maxlength=>'32', placeholder: "Password" %> 
-              <br/> 
+              <%= form_for("user", :url => user_session_path, html: {class: "dropdown-input"}) do |f| %> 
+              <%= f.text_field :email , :size=>'15',:maxlength=>'32', placeholder: "Email"%> <br/> 
+              <%= f.password_field :password , :size=>'15', :maxlength=>'32', placeholder: "Password"%><br/> 
               <%= f.submit "Sign in", class: "btn btn-primary" %>
               <%= link_to "Facebook Login", user_omniauth_authorize_path(:facebook), class: "btn" %>
               <% end %> 
