@@ -1,19 +1,28 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= devise_error_messages! %>
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span6"><%= f.text_field :first_name, placeholder: "First Name" %></div>
+				<div class="span6"><%= f.text_field :last_name, placeholder: "Last Name" %></div>
+			</div>
+			<div class="row-fluid">
+				<div class="span6"><%= f.email_field :email, placeholder: "Email" %></div>
+				<div class="span6"><%= f.text_field :username, placeholder: "Username" %></div>
+			</div>
+			<div class="row-fluid">
+				<div class="span3"><%= select_year(Date.today, :start_year => Time.now.year, :end_year => Time.now.year - 95, field_name: 'year_of_birth') %></div>
+				<div class="span3"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], prompt: "Your Sex")) %></div>
+				<div class="span6"><%= select_tag(:location, options_for_select([['Singapore', 1], ['Outside Singapore', 2]], 1)) %></div>
+			</div>
+			<div><%= f.submit "Update Account", class: "btn btn-primary" %>
+				 <a href="#model_for_pwchng" role="button" class="btn input-btn" data-toggle="modal">Change My Password</a>
+			</div>
+		</div>
+	</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-
-    <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, :autocomplete => "off" %></div>
-
-    <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Update" %></div>
 <% end %>
 
 <h3>Cancel my account</h3>
@@ -21,3 +30,20 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
 
 <%= link_to "Back", :back %>
+
+<div id="model_for_pwchng" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	<h3>Change your password</h3>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+		<div class="row-fluid">
+
+			<div class="span12"><%= f.password_field :password, placeholder: "Password", autocomplete: "off" %></div>
+		</div><div class="row-fluid">
+			<div class="span12"  ><%= f.password_field :password_confirmation, placeholder: "Retype Your Password", autocomplete: "off" %></div>
+		</div>
+			<div><%= f.submit "Change Password", class: "btn btn-primary" %>
+			</div>
+			<% end %>
+
+		</div>
+</div>

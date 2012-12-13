@@ -11,13 +11,13 @@
     </div>
     <div class="row-fluid">
       <div class="span6"><%= f.email_field :email, placeholder: "Email" %></div>
-      <div class="span6"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], 1)) %></div >
+      <div class="span6"><%= f.text_field :username, placeholder: "Username" %></div >
     </div>
-<!--     <div class="row-fluid">
-
-      <div class="span6"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], 1)) %></div>
-      <div class="span6"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], 1)) %></div>
-    </div> -->
+    <div class="row-fluid">
+      <div class="span3"><%= select_year(Date.today, :start_year => Time.now.year, :end_year => Time.now.year - 95, field_name: 'year_of_birth') %></div>
+      <div class="span3"><%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2]], prompt: "Your Sex")) %></div>
+      <div class="span6"><%= select_tag(:location, options_for_select([['Singapore', 1], ['Outside Singapore', 2]], 1)) %></div>
+    </div>
     <div class="row-fluid">
       <div class="span6"><%= f.password_field :password, placeholder: "Password" %></div>
       <div class="span6"  ><%= f.password_field :password_confirmation, placeholder: "Retype Your Password" %></div>
@@ -25,7 +25,7 @@
 
       <div><%= f.submit "Sign up" %></div>
   <%= render "devise/shared/links" %>
-      
+
       <% end %>
     </div>
     <div class="span5 align-center">
