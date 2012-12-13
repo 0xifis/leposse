@@ -1,3 +1,16 @@
+input, select, textarea{
+	width: 100%;
+	height: 35px;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+	height: 35px;	
+}
+
+div, input, text-area{
+	box-sizing: border-box;
+}
+
 .input-btn{
 	line-height: 25px;
 	margin-left: 5px;
@@ -5,4 +18,12 @@
 
 #model_for_pwchng{
 	padding: 0 10px;
+}
+
+#date_select > select{
+	width:32%;
+}
+
+#time_select > select{
+	width:49%;
 }

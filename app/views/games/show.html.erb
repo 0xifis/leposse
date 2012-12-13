@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Title:</b>
+  <%= @game.title %>
+</p>
+
+<p>
   <b>Sport:</b>
-  <%= @game.sport %>
+  <%= @game.sport.name %>
 </p>
 
 <p>
@@ -22,7 +27,7 @@
 
 <p>
   <b>Venue:</b>
-  <%= @game.venue_id %>
+  <%= @game.venue.name %>
 </p>
 
 <p>
@@ -37,7 +42,7 @@
 
 <p>
   <b>Host:</b>
-  <%= @game.host_id %>
+  <%= name(User.find(@game.host_id).id) %>
 </p>
 
 

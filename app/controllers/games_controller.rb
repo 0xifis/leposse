@@ -34,6 +34,7 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+
     @game = Game.find(params[:id])
   end
 
@@ -41,6 +42,9 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(params[:game])
+    @venues = Venue.find(:all)
+    @selected_venue = @venues[1]
+    @game.host_id = current_user.id
 
     respond_to do |format|
       if @game.save
