@@ -24,6 +24,7 @@ class GamesController < ApplicationController
   # GET /games/new
   # GET /games/new.json
   def new
+    before_filter :authenticate_user!
     @game = Game.new
 
     respond_to do |format|
@@ -34,8 +35,11 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
-
     @game = Game.find(params[:id])
+    if @game.host_id != current_user.id
+      redirect_to games_path
+      flash[:alert] = "You cannot edit this game :P"
+    end
   end
 
   # POST /games
@@ -77,11 +81,17 @@ class GamesController < ApplicationController
   # DELETE /games/1.json
   def destroy
     @game = Game.find(params[:id])
+    if @game.host_id != current_user.id
+      redirect_to games_path
+      flash[:alert] = "You cannot edit this game :P"
+    else
     @game.destroy
+
 
     respond_to do |format|
       format.html { redirect_to games_url }
       format.json { head :no_content }
     end
+  end
   end
 end

@@ -10,7 +10,21 @@
 <body>
 
 	<%= render 'partials/navbar' %>
+	<% if flash[:alert] %>
+		<div class="container alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<%= flash[:alert] %>
+		</div>
+	<% end %>
+	<% if flash[:notice] %>
+		<div class="container alert alert-success">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
+	
 	<div class="container" id="page-main">
+
 		<%= yield %>
 	</div>
 
