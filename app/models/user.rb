@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   				  :password, :password_confirmation, :remember_me, :uid, :provider,
             :year_of_birth, :location, :username
 
-  has_and_belongs_to_many :games
+  has_and_belongs_to_many :games, :uniq => true
 
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

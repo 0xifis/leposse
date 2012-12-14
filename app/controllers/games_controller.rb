@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   # GET /games
   # GET /games.json
+  before_filter :authenticate_user!, except: [:index, :show]
   def index
     @games = Game.all
 
@@ -24,7 +25,6 @@ class GamesController < ApplicationController
   # GET /games/new
   # GET /games/new.json
   def new
-    before_filter :authenticate_user!
     @game = Game.new
 
     respond_to do |format|
@@ -85,13 +85,31 @@ class GamesController < ApplicationController
       redirect_to games_path
       flash[:alert] = "You cannot edit this game :P"
     else
-    @game.destroy
+      @game.destroy
+      respond_to do |format|
+        format.html { redirect_to games_url }
+        format.json { head :no_content }
+      end
+    end
+  end
 
-
+  def join
+    # Game.find(params[:id]).users.create({user_id: current_user.id})
+    @member = GamesUsers.new 
+    @member.user_id = current_user.id
+    @member.game_id = params[:id]
+    @member.save  
     respond_to do |format|
-      format.html { redirect_to games_url }
+      format.html { redirect_to game_path(params[:id]) }
       format.json { head :no_content }
     end
   end
+
+  def unjoin
+    current_user.games.delete(Game.find(params[:id]))
+    respond_to do |format|
+      format.html { redirect_to game_path(params[:id]) }
+      format.json { head :no_content }
+    end
   end
 end

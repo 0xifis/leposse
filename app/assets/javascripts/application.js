@@ -18,5 +18,5 @@
 // function onScroll(e) {
 //   window.scrollY >= 40 ? $(".navbar-wrapper").addClass('sticky') :
 //                          $(".navbar-wrapper").removeClass('sticky');
-// };
+// }
 // document.addEventListener('scroll', onScroll);

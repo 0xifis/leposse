@@ -40,5 +40,10 @@ body{
 	}
 }
 
+#error_explanation{
+	@extend .alert;
+	@extend .alert-error;
+}
+
 
 

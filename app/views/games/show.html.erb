@@ -45,6 +45,25 @@
   <%= name(User.find(@game.host_id).id) %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Members</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @game.users.each do|t| %>
+      <tr><td><%= name(t) %></td></tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if GamesUsers.where(game_id: params[:id]).where(user_id: current_user.id).present? %>
+<%= link_to "Unjoin", unjoin_path %> | 
+<% else %>
+<%= link_to "Join", join_path %> | 
+<% end %>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
