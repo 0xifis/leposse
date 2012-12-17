@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
+<div class="row-fluid">
+  <div class="span6"><h2>
   <%= @game.title %>
-</p>
+</h2>
 
 <p>
   <b>Sport:</b>
@@ -44,26 +42,30 @@
   <b>Host:</b>
   <%= name(User.find(@game.host_id).id) %>
 </p>
+</div>
+  <div class="span6">
+    <h2>Current Members</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Members (<%= @game.users.count.to_s + "/" + @game.maxpax.to_s %>)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @game.users.each do|t| %>
+          <tr><td><%= name(t) %></td></tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Members</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @game.users.each do|t| %>
-      <tr><td><%= name(t) %></td></tr>
+    <% if GamesUsers.where(game_id: params[:id]).where(user_id: current_user.id).present? %>
+    <%= link_to "Leave", leave_path, class: "btn btn-primary"%> 
+    <% else %>
+    <%= link_to "Join", join_path, class: "btn btn-primary"%> 
     <% end %>
-  </tbody>
-</table>
 
-<br>
-<% if GamesUsers.where(game_id: params[:id]).where(user_id: current_user.id).present? %>
-<%= link_to "Unjoin", unjoin_path %> | 
-<% else %>
-<%= link_to "Join", join_path %> | 
-<% end %>
+    <%= link_to 'Edit', edit_game_path(@game), class: "btn btn-warning"%> 
+    <%= link_to 'Back', games_path, class: "btn"%>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+  </div>
+</div>

@@ -21,4 +21,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'thin'
 
+gem 'turbolinks'
+
 gem 'activeadmin'

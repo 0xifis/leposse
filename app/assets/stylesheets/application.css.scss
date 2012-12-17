@@ -45,5 +45,8 @@ body{
 	@extend .alert-error;
 }
 
+.sidebar{
+	@extend .content;
+}
 
 
