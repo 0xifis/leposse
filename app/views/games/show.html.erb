@@ -15,12 +15,12 @@
 
 <p>
   <b>Start time:</b>
-  <%= @game.start_time %>
+  <%= @game.start_time.strftime("%H:%M")%>
 </p>
 
 <p>
   <b>End time:</b>
-  <%= @game.end_time %>
+  <%= @game.end_time.strftime("%H:%M") %>
 </p>
 
 <p>
