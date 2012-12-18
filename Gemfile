@@ -23,4 +23,6 @@ gem 'thin'
 
 gem 'turbolinks'
 
+gem 'pg_search'
+
 gem 'activeadmin'

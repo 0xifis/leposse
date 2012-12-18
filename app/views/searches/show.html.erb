@@ -1,0 +1,10 @@
+<h1>Search for <%= params[:query] %> found <%= pluralize @blog_posts.count, 'game' %>:</h1>
+
+<ul>
+  <% @search.each do |t| %>
+    <li>
+      <p><%= link_to t.title, game %></p>
+      <%= simple_format t.sport %>
+    </li>
+  <% end %>
+</ul>
